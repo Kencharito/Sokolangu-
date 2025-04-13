@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sokolangu</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #fff;
+      --primary: #b9985f;
+      --hover: #d1ad6d;
+      --section-bg: #1a1a1a;
+      --gallery-bg: #141414;
+    }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #000000;
+      --section-bg: #f4f4f4;
+      --gallery-bg: #eaeaea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: var(--section-bg);
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom right, #2c2c2c, var(--section-bg));
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .buy-button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .buy-button:hover {
+      background-color: var(--hover);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      background-color: var(--gallery-bg);
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .video-section {
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: var(--section-bg);
+    }
+    .video-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 12px;
+      border: none;
+    }
+    .contact {
+      padding: 2rem;
+      background-color: var(--section-bg);
+    }
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input, .contact textarea {
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .contact button {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .contact button:hover {
+      background-color: var(--hover);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--bg);
+      color: #777;
+    }
+    @media (max-width: 768px) {
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .video-section iframe {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header data-aos="fade-down">
+    <h1>Sokolangu</h1>
+    <p>The Future is Electric</p>
+  </header>
+  <section class="hero" data-aos="fade-up">
+    <p>Experience luxury and innovation with Sokolangu, the cutting-edge electric product crafted for tech lovers who crave style and performance.</p>
+    <a href="http://tinypesa.com/Sokolaangu" class="buy-button">Buy Now</a>
+  </section>
+  <section class="gallery" data-aos="fade-up">
+    <img src="image1.jpg" alt="Sokolangu front view" loading="lazy" width="300" height="200" />
+    <img src="image2.jpg" alt="Sokolangu side view" loading="lazy" width="300" height="200" />
+    <img src="image3.jpg" alt="Sokolangu in use" loading="lazy" width="300" height="200" />
+  </section>
+  <section class="video-section" data-aos="zoom-in">
+    <h2>Watch Sokolangu in Action</h2>
+    <iframe src="https://drive.google.com/file/d/1WBQPRFw2h0nedInZrw-1DQ_-tJWwEjTJ/preview" allowfullscreen loading="lazy"></iframe>
+  </section>
+  <section class="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 Sokolangu. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const storedTheme = localStorage.getItem("theme") || "dark";
+    document.body.setAttribute("data-theme", storedTheme);
+    function toggleTheme() {
+      const currentTheme = document.body.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.body.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    }
+  </script>
+</body>
+</html>
